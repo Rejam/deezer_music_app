@@ -1,0 +1,5 @@
+const SEARCH_MUSIC = "SEARCH_MUSIC"
+const ADD_FAV = "ADD_FAV"
+const DEL_FAV = "DEL_FAV"
+
+export { SEARCH_MUSIC, ADD_FAV, DEL_FAV }
