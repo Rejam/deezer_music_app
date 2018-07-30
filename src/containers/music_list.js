@@ -15,6 +15,7 @@ class MusicList extends React.Component {
           title={ item.title }
           preview={ item.preview }
           cover={ item.album.cover_small }
+          link={ item.link }
         />
       )
     }

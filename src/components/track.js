@@ -1,11 +1,13 @@
 import React from 'react'
 
-const Track = ({ artist, title, preview, cover }) =>
+const Track = ({ artist, title, preview, cover, link }) =>
   <div className="card" style={{ marginTop: "1em" }}>
     <div className="card-header">
       <div className="card-header-title columns is-mobile">
         <div className="column">Title: { title }</div>
-        <i class="fas fa-external-link-alt column is-narrow"></i>
+        <a href={link}>
+          <i class="fas fa-external-link-alt column is-narrow"></i>
+        </a>
       </div>
     </div>
     <div className="card-content align-center">
