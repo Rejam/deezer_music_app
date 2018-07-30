@@ -5,7 +5,9 @@ import Track from '../components/track'
 class MusicList extends React.Component {
   render() {
     const Music = ({ music }) => {
-      if(!music) { return "No results"}
+      if(music.length < 1) { 
+        return "No results."
+      }
       return music.map(item =>
         <Track
           key={ item.id }
@@ -25,7 +27,8 @@ class MusicList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  music: state.music
+  music: state.music,
+  loading: state.loading
 })
 
 export default connect(mapStateToProps)(MusicList)

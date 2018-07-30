@@ -3,15 +3,21 @@ import { connect } from 'react-redux'
 import { search } from '../actions/search'
 
 class MusicSearch extends React.Component {
+  state = {
+    isFetching: false
+  }
 
   handleFormSubmit = e => {
     e.preventDefault()
     const { value } = e.target.elements.query
-    this.props.search(value)
-    e.target.reset()
+    this.props.search(value).then(this.fetched)
+    this.setState({ isFetching: true })
   }
 
+  fetched = () => this.setState({ isFetching: false })
+
   render() {
+    const { isFetching } = this.state
     return (
       <form onSubmit={ this.handleFormSubmit }>
         <div className="field has-addons">
@@ -22,10 +28,10 @@ class MusicSearch extends React.Component {
               name="query"/>
           </div>
           <div className="control">
-            <input 
-              className="button is-primary"
+            <button
+              className={`button is-primary ${isFetching && "is-loading"}`}
               type="submit"
-              value="Search"/>
+            >Search</button>
           </div>
         </div>
       </form>

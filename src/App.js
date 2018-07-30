@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="App section">
         <div className="container">
-          <h1 class="title">Find Music On Deezer</h1>
+          <h1 className="title">Find Music On Deezer</h1>
           <MusicSearch />
           <MusicList />
         </div>
