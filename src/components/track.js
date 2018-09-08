@@ -19,7 +19,7 @@ const Track = ({ artist, title, preview, cover, link }) =>
           <p>Artist: { artist }</p>
         </div>
         <div className="column">
-          <audio controls style={{ "width": "100%"}}>
+          <audio controls style={{ "width": "100%", "height": "100%"}}>
             <source src={ preview }/>
           </audio>        
         </div>
