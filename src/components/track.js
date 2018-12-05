@@ -6,20 +6,20 @@ const Track = ({ artist, title, preview, cover, link }) =>
       <div className="card-header-title columns is-mobile">
         <div className="column">Title: { title }</div>
         <a href={link}>
-          <i class="fas fa-external-link-alt column is-narrow"></i>
+          <i className="fas fa-external-link-alt column is-narrow"></i>
         </a>
       </div>
     </div>
     <div className="card-content align-center">
-      <div className="columns">
+      <div className="columns is-mobile is-multiline">
         <div className="card-image column is-narrow">
           <img src={ cover } alt=""/>
         </div>
-        <div className="column">
+        <div className="column is-one-third-tablet">
           <p>Artist: { artist }</p>
         </div>
-        <div className="column">
-          <audio controls style={{ "width": "100%", "height": "100%"}}>
+        <div className="column is-full-mobile">
+          <audio controls style={{ "width": "100%", "height": "50px" }}>
             <source src={ preview }/>
           </audio>        
         </div>

@@ -1,9 +1,18 @@
 import { SEARCH_MUSIC } from './types' 
 import deezerAPI from '../api'
 
-const search = query => ({
-  type: SEARCH_MUSIC,
-  payload: deezerAPI(query)
-})
+export const getTracks = async query => {
+  const payload = await deezerAPI.getTracks(query)
+  return ({
+    type: SEARCH_MUSIC,
+    payload: payload.data.data
+  })
+}
 
-export { search }
+export const getChart = async () => {
+  const payload = await deezerAPI.getChart()
+  return ({
+    type: SEARCH_MUSIC,
+    payload: payload.data.tracks.data
+  })
+}

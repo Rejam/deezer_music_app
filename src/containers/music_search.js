@@ -1,16 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { search } from '../actions/search'
+import { getTracks, getChart } from '../actions/search'
 
 class MusicSearch extends React.Component {
   state = {
     isFetching: false
   }
 
+  componentDidMount() {
+    console.log(this.props)
+    this.props.getChart().then(this.fetched)
+    this.setState({ isFetching: true })
+  }
+
   handleFormSubmit = e => {
     e.preventDefault()
     const { value } = e.target.elements.query
-    this.props.search(value).then(this.fetched)
+    this.props.getTracks(value).then(this.fetched)
     this.setState({ isFetching: true })
   }
 
@@ -23,6 +29,7 @@ class MusicSearch extends React.Component {
         <div className="field has-addons">
           <div className="control">
             <input
+            placeholder="Search..."
               className="input"
               type="text"
               name="query"/>
@@ -39,4 +46,4 @@ class MusicSearch extends React.Component {
   }
 }
 
-export default connect(null, { search })(MusicSearch)
+export default connect(null, { getChart, getTracks })(MusicSearch)
