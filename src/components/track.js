@@ -1,13 +1,18 @@
 import React from 'react'
 
-const Track = ({ artist, title, preview, cover, link }) => (
+const Track = ({ artist, title, preview, cover, link, fave, saved }) => (
   <div className="card" style={{ marginTop: "1em" }}>
     <div className="card-header">
       <div className="card-header-title columns is-mobile">
         <div className="column">{ title }</div>
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          <i className="fas fa-external-link-alt column is-narrow"></i>
-        </a>
+        <div className="column is-narrow">
+          <button onClick={fave} className="button">
+            <i className={`${saved ? 'fas' : 'far'} fa-heart`} ></i>
+          </button>
+          <a href={link} className="button" target="_blank" rel="noopener noreferrer">
+            <i className="fas fa-external-link-alt"></i>
+          </a>
+        </div>
       </div>
     </div>
     <div className="card-content align-center">

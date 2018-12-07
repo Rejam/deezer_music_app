@@ -2,11 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { getMusic } from '../actions'
 
-const MusicSearch = ({ loading, getMusic }) => {
+const MusicSearch = ({ loading, getMusic, history }) => {
   const handleSubmit = e => {
     e.preventDefault()
     const { query } = e.target.elements
     getMusic(query.value)
+    history.push('/')
   }
 
   return (

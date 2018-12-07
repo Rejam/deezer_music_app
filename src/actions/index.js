@@ -19,3 +19,9 @@ export const getMusic = query => async dispatch => {
     : (await deezerAPI.getChart()).data.tracks.data
   dispatch(receiveMusic(music))
 }
+
+export const FAVE_TOGGLE = 'FAVE_TOGGLE'
+export const toggleFave = track => ({
+  type: FAVE_TOGGLE,
+  track
+})
