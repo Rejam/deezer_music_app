@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Track from './Track'
 import { toggleFave } from '../actions'
+import Track from './Track'
 
 const MusicList = ({ music, loading, toggleFave, faves }) => (
   <>

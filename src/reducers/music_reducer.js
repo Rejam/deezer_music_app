@@ -11,7 +11,6 @@ export default (state = initialState, action) => {
       return { ...state, loading: true }
     }
     case RECEIVE_MUSIC:
-      console.log(action.music[0])
       return { ...state, music: action.music, loading: false}
 
     case FAVE_TOGGLE: {
